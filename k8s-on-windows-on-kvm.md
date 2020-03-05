@@ -29,7 +29,7 @@ KVM上にインストールしたWindows 10 pro の上で、k8s (docker の kube
 
 ## docker for windows でk8sを試す
 
-[Install Docker Desktop on Windows \| Docker Documentation](https://docs.docker.com/docker-for-windows/install/#install-docker-desktop-for-windows-desktop-app)
+[Install Docker Desktop on Windows \| Docker Documentation](https://docs.docker.com/docker-for-windows/install/#install-docker-desktop-for-windows-desktop-app)  
 上記より、dockerをダウンロードしてインストールする
 
 インストールが完了したら再起動の儀式をする。
@@ -42,7 +42,7 @@ Hyper-V上に、docker用のVMが作られる。(非常に時間がかかった)
 起動してこない場合は、Docker Desktopを実行する。
 起動完了すると、タスクバーに、Dockerが確認できる。
 
-![スクリーンショット 2020-03-05 10.01.24.png](:storage/45c02d73-d2f1-41d6-a344-96a9a795208e/823f0700.png)
+![k8s-on-windows-on-kvm-1.png](images/k8s-on-windows-on-kvm/1.png)
 
 ### kubernatesを有効化する
 
@@ -64,7 +64,7 @@ Dockerをfactoryリセットして何度か試すが、Dockerすらまともに�
 
 ### インストール
 
-以下よりminikube `minikube-windows-amd64.exe` をダウンロードする。
+以下よりminikube `minikube-windows-amd64.exe` をダウンロードする。  
 [Releases · kubernetes/minikube · GitHub](https://github.com/kubernetes/minikube/releases)
 
 以下よりkubectlをダウンロードする。  
@@ -87,7 +87,7 @@ minikube start --vm-driver=hyperv --force
 Hyper-V 上に、minikubeという名前のVMが自動で作られる。  
 ちなみに、このVMには、user=`docker`, password=`tcuser` でログインできる。
 
-![スクリーンショット 2020-03-05 23.28.31.png](:storage/45c02d73-d2f1-41d6-a344-96a9a795208e/979b5136.png)
+![k8s-on-windows-on-kvm-2.png](images/k8s-on-windows-on-kvm/2.png)
 
 VM作成されたが、しばらくするとコマンドはエラーになった・・・  
 VMが起動してくるのが遅すぎてエラーになった模様？？
@@ -154,7 +154,7 @@ minikube dashboard
 ```
 勝手にブラウザが立ち上がり、ダッシュボードが見れた。しかし、描画がすごく遅い。
 
-![スクリーンショット 2020-03-05 23.03.42.png](:storage/45c02d73-d2f1-41d6-a344-96a9a795208e/d275f1a3.png)
+![k8s-on-windows-on-kvm-3.png](images/k8s-on-windows-on-kvm/3.png)
 
 
 
@@ -182,7 +182,7 @@ C:\opt>minikube service hello-minikube --url
 http://192.168.187.8:31775
 ```
 
-![スクリーンショット 2020-03-05 23.13.37.png](:storage/45c02d73-d2f1-41d6-a344-96a9a795208e/8842ff65.png)
+![k8s-on-windows-on-kvm-4](images/k8s-on-windows-on-kvm/4.png)
 
 無事接続できた。
 
